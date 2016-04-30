@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-md-6 col-sm-offset-3">
+<h1>{{ title }}<small> {{ instance.timestamp }}</small></h1>
+
+{{ instance.content|linebreaks }}<br/>
+<br/>
+
+<div class="btn-group" role="group" aria-label="...">
+  <a href="{% url 'posts:update' id=instance.id %}"><button type="button" class="btn btn-default">Edit</button></a>
+  <a href="{% url 'posts:update' id=instance.id %}"><button type="button" class="btn btn-default">Delete</button></a>
+</div>	
+</div>
+
+{%endblock%}

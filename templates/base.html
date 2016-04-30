@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/navbar-static-top.css' %}" rel="stylesheet">
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <title>Django Login Application|{% block title %}{% endblock %}</title>
+
+    <!-- Custom styles for this template -->
+    <style type="text/css">
+        body {
+          min-height: 2000px;
+        }
+        .navbar-static-top {
+          margin-bottom: 19px;
+        }
+    </style>
+
+  </head>
+
+  <body>
+  {% include 'navbar.html' %}
+    <div class="container">
+        <h1>{% block head %}{% endblock %}</h1>
+        {% block content %}
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron" align='center'>
+        <h2>Welcome {{request.user}}</h2>
+        <br/>
+        <p>Click to write a post
+          <a class="btn btn-default" href="{% url 'posts:create' %}" role="button">Click</a>
+        </p>
+      </div>
+        {% endblock %}
+    </div> <!-- /container -->
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </body>
+</html>
